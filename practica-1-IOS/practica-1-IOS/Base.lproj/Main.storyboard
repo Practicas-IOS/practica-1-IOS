@@ -13,9 +13,123 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scr-carousel">
+                                <rect key="frame" x="0.0" y="64" width="375" height="280"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="img-1">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
+                                        <color key="backgroundColor" red="0.95" green="0.62" blue="0.15" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="0.95" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="img-2">
+                                        <rect key="frame" x="375" y="0.0" width="375" height="280"/>
+                                        <color key="backgroundColor" red="0.55" green="0.35" blue="0.95" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="0.95" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="img-3">
+                                        <rect key="frame" x="750" y="0.0" width="375" height="280"/>
+                                        <color key="backgroundColor" red="0.12" green="0.7" blue="0.85" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="0.95" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="cfg-carousel"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ffg-carousel"/>
+                                <constraints>
+                                    <constraint firstItem="img-1" firstAttribute="leading" secondItem="cfg-carousel" secondAttribute="leading" id="c-img1-leading"/>
+                                    <constraint firstItem="img-1" firstAttribute="bottom" secondItem="ffg-carousel" secondAttribute="bottom" id="c-img1-bottom"/>
+                                    <constraint firstItem="img-1" firstAttribute="top" secondItem="ffg-carousel" secondAttribute="top" id="c-img1-top"/>
+                                    <constraint firstItem="img-1" firstAttribute="width" secondItem="scr-carousel" secondAttribute="width" id="c-img1-width"/>
+                                    <constraint firstItem="img-2" firstAttribute="leading" secondItem="img-1" secondAttribute="trailing" id="c-img2-leading"/>
+                                    <constraint firstItem="img-2" firstAttribute="bottom" secondItem="ffg-carousel" secondAttribute="bottom" id="c-img2-bottom"/>
+                                    <constraint firstItem="img-2" firstAttribute="top" secondItem="ffg-carousel" secondAttribute="top" id="c-img2-top"/>
+                                    <constraint firstItem="img-2" firstAttribute="width" secondItem="scr-carousel" secondAttribute="width" id="c-img2-width"/>
+                                    <constraint firstItem="img-3" firstAttribute="leading" secondItem="img-2" secondAttribute="trailing" id="c-img3-leading"/>
+                                    <constraint firstItem="img-3" firstAttribute="bottom" secondItem="ffg-carousel" secondAttribute="bottom" id="c-img3-bottom"/>
+                                    <constraint firstItem="img-3" firstAttribute="top" secondItem="ffg-carousel" secondAttribute="top" id="c-img3-top"/>
+                                    <constraint firstItem="img-3" firstAttribute="trailing" secondItem="cfg-carousel" secondAttribute="trailing" id="c-img3-trailing"/>
+                                    <constraint firstItem="img-3" firstAttribute="width" secondItem="scr-carousel" secondAttribute="width" id="c-img3-width"/>
+                                </constraints>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 / 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-counter">
+                                <rect key="frame" x="0.0" y="368" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-prev">
+                                <rect key="frame" x="12" y="182" width="44" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="chevron.left" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="prevButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="act-prev"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-next">
+                                <rect key="frame" x="319" y="182" width="44" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="chevron.right" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="act-next"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-menu">
+                                <rect key="frame" x="315" y="8" width="44" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="line.horizontal.3" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="menuButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="act-menu"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.11" green="0.11" blue="0.12" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="scr-carousel" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c-scroll-leading"/>
+                            <constraint firstItem="scr-carousel" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="c-scroll-top"/>
+                            <constraint firstItem="scr-carousel" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="c-scroll-trailing"/>
+                            <constraint firstItem="scr-carousel" firstAttribute="height" constant="280" id="c-scroll-height"/>
+                            <constraint firstItem="btn-menu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="c-menu-top"/>
+                            <constraint firstItem="btn-menu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-16" id="c-menu-trailing"/>
+                            <constraint firstItem="btn-menu" firstAttribute="height" constant="44" id="c-menu-height"/>
+                            <constraint firstItem="btn-menu" firstAttribute="width" constant="44" id="c-menu-width"/>
+                            <constraint firstItem="btn-prev" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="c-prev-leading"/>
+                            <constraint firstItem="btn-prev" firstAttribute="centerY" secondItem="scr-carousel" secondAttribute="centerY" id="c-prev-centerY"/>
+                            <constraint firstItem="btn-prev" firstAttribute="height" constant="44" id="c-prev-height"/>
+                            <constraint firstItem="btn-prev" firstAttribute="width" constant="44" id="c-prev-width"/>
+                            <constraint firstItem="btn-next" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-12" id="c-next-trailing"/>
+                            <constraint firstItem="btn-next" firstAttribute="centerY" secondItem="scr-carousel" secondAttribute="centerY" id="c-next-centerY"/>
+                            <constraint firstItem="btn-next" firstAttribute="height" constant="44" id="c-next-height"/>
+                            <constraint firstItem="btn-next" firstAttribute="width" constant="44" id="c-next-width"/>
+                            <constraint firstItem="lbl-counter" firstAttribute="top" secondItem="scr-carousel" secondAttribute="bottom" constant="24" id="c-lbl-top"/>
+                            <constraint firstItem="lbl-counter" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c-lbl-centerX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="carouselScroll" destination="scr-carousel" id="con-scroll"/>
+                        <outlet property="counterLabel" destination="lbl-counter" id="con-lbl"/>
+                        <outlet property="image1" destination="img-1" id="con-img1"/>
+                        <outlet property="image2" destination="img-2" id="con-img2"/>
+                        <outlet property="image3" destination="img-3" id="con-img3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
